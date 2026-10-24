@@ -1,0 +1,109 @@
+date,amount,category,description
+2026-08-03,1740,Transport,PickMe ride
+2026-08-04,600,Food,Lunch at office canteen
+2026-08-04,13740,Groceries,Keells weekly groceries
+2026-08-04,45000,Rent,Monthly house rent
+2026-08-05,8730,Transport,Fuel
+2026-08-08,450,Food,Lunch at office canteen
+2026-08-08,13830,Groceries,Keells weekly groceries
+2026-08-10,1540,Transport,PickMe ride
+2026-08-10,4200,Transport,Fuel
+2026-08-11,3360,Food,Dinner out
+2026-08-11,6260,Bills,CEB electricity bill
+2026-08-12,3260,Food,Uber Eats order
+2026-08-12,11050,Shopping,Clothes / accessories
+2026-08-13,3530,Food,Dinner out
+2026-08-13,11580,Education,Online course / books
+2026-08-14,1640,Health,Pharmacy
+2026-08-15,460,Food,Lunch at office canteen
+2026-08-16,1950,Other,Gift / miscellaneous
+2026-08-16,5280,Food,Dinner out
+2026-08-18,1200,Transport,PickMe ride
+2026-08-18,3520,Groceries,Cargills fruits & veg
+2026-08-18,3810,Groceries,Cargills fruits & veg
+2026-08-19,680,Food,Lunch at office canteen
+2026-08-20,490,Food,Lunch at office canteen
+2026-08-20,11590,Groceries,Keells weekly groceries
+2026-08-21,760,Transport,PickMe ride
+2026-08-21,4990,Bills,SLT fibre internet
+2026-08-23,2560,Entertainment,Cinema tickets
+2026-08-24,1300,Transport,PickMe ride
+2026-08-24,1650,Transport,PickMe ride
+2026-08-25,840,Food,Lunch at office canteen
+2026-08-26,3340,Food,Uber Eats order
+2026-08-26,4140,Groceries,Cargills fruits & veg
+2026-08-27,500,Food,Lunch at office canteen
+2026-08-27,800,Food,Lunch at office canteen
+2026-08-28,1750,Entertainment,Netflix subscription
+2026-08-28,14310,Groceries,Keells weekly groceries
+2026-08-31,2020,Bills,Dialog mobile + data
+2026-09-01,4040,Shopping,Clothes / accessories
+2026-09-04,820,Food,Lunch at office canteen
+2026-09-05,4650,Health,Pharmacy
+2026-09-08,5980,Food,Dinner out
+2026-09-09,1750,Transport,PickMe ride
+2026-09-10,1720,Transport,PickMe ride
+2026-09-10,1750,Entertainment,Netflix subscription
+2026-09-13,1970,Transport,PickMe ride
+2026-09-13,14010,Groceries,Keells weekly groceries
+2026-09-14,5660,Transport,Fuel
+2026-09-14,45000,Rent,Monthly house rent
+2026-09-16,520,Food,Lunch at office canteen
+2026-09-16,6120,Food,Dinner out
+2026-09-16,7290,Transport,Fuel
+2026-09-17,2030,Transport,PickMe ride
+2026-09-17,3920,Groceries,Cargills fruits & veg
+2026-09-17,7490,Bills,CEB electricity bill
+2026-09-17,8620,Groceries,Keells weekly groceries
+2026-09-19,560,Food,Lunch at office canteen
+2026-09-19,3760,Groceries,Cargills fruits & veg
+2026-09-20,670,Food,Lunch at office canteen
+2026-09-20,4990,Bills,SLT fibre internet
+2026-09-21,3670,Food,Uber Eats order
+2026-09-22,3720,Food,Uber Eats order
+2026-09-23,720,Food,Lunch at office canteen
+2026-09-23,1720,Transport,PickMe ride
+2026-09-25,520,Food,Lunch at office canteen
+2026-09-25,2390,Bills,Dialog mobile + data
+2026-09-26,1900,Groceries,Cargills fruits & veg
+2026-09-26,1920,Transport,PickMe ride
+2026-09-26,11070,Education,Online course / books
+2026-09-27,480,Food,Lunch at office canteen
+2026-09-27,2350,Entertainment,Cinema tickets
+2026-09-28,9940,Groceries,Keells weekly groceries
+2026-09-29,790,Food,Lunch at office canteen
+2026-09-29,3000,Food,Dinner out
+2026-09-29,10520,Groceries,Keells weekly groceries
+2026-09-30,5010,Other,Gift / miscellaneous
+2026-10-02,15820,Shopping,Clothes / accessories
+2026-10-03,600,Transport,PickMe ride
+2026-10-03,5160,Food,Dinner out
+2026-10-04,670,Food,Lunch at office canteen
+2026-10-04,3070,Entertainment,Cinema tickets
+2026-10-05,1040,Other,Gift / miscellaneous
+2026-10-07,2130,Transport,PickMe ride
+2026-10-07,5260,Bills,CEB electricity bill
+2026-10-08,1750,Entertainment,Netflix subscription
+2026-10-09,3840,Food,Uber Eats order
+2026-10-10,3100,Groceries,Cargills fruits & veg
+2026-10-12,2200,Food,Uber Eats order
+2026-10-12,45000,Rent,Monthly house rent
+2026-10-14,880,Food,Lunch at office canteen
+2026-10-14,900,Transport,PickMe ride
+2026-10-14,11070,Groceries,Keells weekly groceries
+2026-10-15,540,Food,Lunch at office canteen
+2026-10-15,630,Transport,PickMe ride
+2026-10-15,860,Food,Lunch at office canteen
+2026-10-15,1790,Transport,PickMe ride
+2026-10-15,4990,Bills,SLT fibre internet
+2026-10-16,13120,Groceries,Keells weekly groceries
+2026-10-17,580,Food,Lunch at office canteen
+2026-10-17,12780,Groceries,Keells weekly groceries
+2026-10-18,3100,Health,Pharmacy
+2026-10-18,4680,Transport,Fuel
+2026-10-20,5630,Transport,Fuel
+2026-10-22,1940,Groceries,Cargills fruits & veg
+2026-10-22,8350,Education,Online course / books
+2026-10-23,820,Food,Lunch at office canteen
+2026-10-23,2000,Bills,Dialog mobile + data
+2026-10-24,4460,Food,Dinner out

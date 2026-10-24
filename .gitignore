@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+data/finance.db
+data/finance.db-journal
+logs/*.log
+logs/*.jsonl
+reports/*.html
+.idea/
+.vscode/

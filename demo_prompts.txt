@@ -1,0 +1,7 @@
+# Demo prompts used by: python main.py --demo   (lines starting with # are ignored)
+I spent 2500 on lunch yesterday
+How much did I spend this month and which category is the biggest?
+Convert 50 USD to LKR and add it as a Shopping expense for today
+Am I over budget on anything this month? Then generate a report for this month.
+Make it for last month instead
+Add an expense of -500 for food

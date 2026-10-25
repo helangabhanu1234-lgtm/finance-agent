@@ -5,6 +5,14 @@ The LLM (`llama3.2`, 3B) runs **locally with Ollama** - no paid cloud API. Writt
 
 LLM Engineering Assignment - HD in AI & SE 26-01 (Group project)
 
+## Deliverables
+
+| Deliverable | Link |
+|---|---|
+| Source code | This repository |
+| Technical report (PDF) | [Google Drive - Technical Report](https://drive.google.com/file/d/17nHS4I6UEr7p0wO9FXtG68cLQYdg95Vh/view?usp=sharing) - same file in the repository: [docs/Technical_Report.pdf](docs/Technical_Report.pdf) |
+| Demo video (3-5 min) | [Google Drive - Demo Video](https://drive.google.com/drive/folders/1BABjwk19j0qve0iBE4iuavnf3i6Td-rj) |
+
 ## What the agent can do
 
 | Tool | Purpose | Persistent data |

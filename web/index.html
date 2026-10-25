@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Personal Finance Helper</title>
+<style>
+:root{--bg:#0b0b0b;--panel:#161616;--line:#2a2a2a;--red:#e10600;--text:#eee;--muted:#8a8a8a}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:Segoe UI,Arial,sans-serif;height:100vh;display:flex;flex-direction:column}
+header{padding:12px 20px;border-bottom:3px solid var(--red);display:flex;justify-content:space-between;align-items:center}
+header h1{margin:0;font-size:18px;color:var(--red)}header span{color:var(--muted);font-size:13px}
+main{flex:1;display:grid;grid-template-columns:1fr 1fr;min-height:0}
+section{display:flex;flex-direction:column;min-height:0;border-right:1px solid var(--line)}
+h2{margin:0;padding:10px 16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--red);border-bottom:1px solid var(--line)}
+#chat,#trace{flex:1;overflow:auto;padding:16px}
+.msg{margin:0 0 12px;padding:10px 12px;border-radius:8px;white-space:pre-wrap;line-height:1.45;max-width:90%}
+.user{background:var(--red);margin-left:auto}.bot{background:var(--panel);border:1px solid var(--line)}
+.call{border-left:3px solid #ffb300;background:var(--panel);padding:8px 10px;margin-bottom:6px;font:12px Consolas,monospace;white-space:pre-wrap;word-break:break-word}
+.res-ok{border-left:3px solid #4caf50;background:var(--panel);padding:8px 10px;margin-bottom:14px;font:12px Consolas,monospace;white-space:pre-wrap;word-break:break-word}
+.res-bad{border-left:3px solid var(--red);background:var(--panel);padding:8px 10px;margin-bottom:14px;font:12px Consolas,monospace;white-space:pre-wrap;word-break:break-word}
+form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+input{flex:1;padding:10px;background:var(--panel);border:1px solid var(--line);color:var(--text);border-radius:6px;font-size:14px}
+button{background:var(--red);color:#fff;border:0;padding:10px 16px;border-radius:6px;cursor:pointer;font-weight:600}
+button.ghost{background:transparent;border:1px solid var(--line);color:var(--muted)}button:disabled{opacity:.5}
+.hint{color:var(--muted);font-size:12px}
+.chips{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.chip{background:var(--panel);border:1px solid var(--line);color:var(--text);text-align:left;font-weight:400;font-size:13px}
+.chip:hover{border-color:var(--red)}
+.note{border-left:3px solid #ff3b30;background:var(--panel);padding:6px 10px;margin-bottom:6px;font:12px Consolas,monospace;color:#ff8a80;white-space:pre-wrap}
+.step{color:var(--muted);font:12px Consolas,monospace;margin:4px 0}
+@media(max-width:800px){main{grid-template-columns:1fr;grid-template-rows:1fr 1fr}}
+</style></head><body>
+<header><h1>Personal Finance Helper</h1><span id="info">loading...</span></header>
+<main>
+<section><h2>Conversation</h2><div id="chat"><div class="hint">Click an example or type your own:<div class="chips"><button type="button" class="chip">I spent 2500 on lunch yesterday</button><button type="button" class="chip">Where did my money go this month?</button><button type="button" class="chip">Convert 50 USD to LKR and add it as a Shopping expense for today</button><button type="button" class="chip">Am I over budget on anything this month? Then generate a report for this month.</button></div></div></div>
+<form id="f"><input id="q" autocomplete="off" placeholder="Type your message..."><button id="send">Send</button><button type="button" class="ghost" id="reset">Reset</button></form></section>
+<section><h2>Tool-call trace</h2><div id="trace"><div class="hint">Every tool call the agent makes appears here.</div></div></section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+function add(el,cls,text){const d=document.createElement('div');d.className=cls;d.textContent=text;el.appendChild(d);el.scrollTop=el.scrollHeight;return d}
+fetch('/api/info').then(r=>r.json()).then(i=>$('info').textContent=`model: ${i.model} | ${i.tools.length} tools | max ${i.max_steps} steps`);
+$('f').addEventListener('submit',e=>{e.preventDefault();send($('q').value)});
+document.addEventListener('click',e=>{if(e.target.classList.contains('chip')){$('q').value=e.target.textContent;$('q').focus()}});
+
+async function send(raw){
+  const text=raw.trim();if(!text)return;
+  $('q').value='';add($('chat'),'msg user',text);$('send').disabled=true;
+  const wait=add($('chat'),'msg bot','thinking... 0s');
+  let phase='';const t0=Date.now();
+  const timer=setInterval(()=>{wait.textContent=`thinking... ${Math.round((Date.now()-t0)/1000)}s`+(phase?` (${phase})`:'')},1000);
+  add($('trace'),'hint','--- request: '+text.slice(0,70)+' ---');
+  const handle=ev=>{
+    if(ev.type==='model_call'){phase='model call '+ev.step;add($('trace'),'step','[step '+ev.step+'] waiting for the model...')}
+    else if(ev.type==='tool_call'){add($('trace'),'call',`[step ${ev.step}] CALL ${ev.name}(${JSON.stringify(ev.arguments)})`)}
+    else if(ev.type==='arg_fix'){add($('trace'),'note','ARG FIX: '+ev.note)}
+    else if(ev.type==='guardrail'){add($('trace'),'note','GUARDRAIL: request not finished, missing '+ev.missing.join(', '))}
+    else if(ev.type==='number_guard'){add($('trace'),'note','NUMBER GUARD: '+ev.numbers.join(', '))}
+    else if(ev.type==='tool_result'){add($('trace'),ev.ok?'res-ok':'res-bad',`RESULT ok=${ev.ok} (${ev.ms} ms)\n${JSON.stringify(ev.result,null,1)}`)}
+    else if(ev.type==='done'){wait.textContent=ev.answer;add($('trace'),'hint',`(${ev.steps} model calls, ${ev.tool_calls} tool calls, ${Math.round((Date.now()-t0)/1000)}s)`)}
+  };
+  try{
+    const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message:text})});
+    const reader=r.body.getReader(),dec=new TextDecoder();let buf='';
+    for(;;){
+      const {value,done}=await reader.read();if(done)break;
+      buf+=dec.decode(value,{stream:true});let i;
+      while((i=buf.indexOf('\n'))>=0){const line=buf.slice(0,i).trim();buf=buf.slice(i+1);if(line)handle(JSON.parse(line))}
+    }
+  }catch(err){wait.textContent='Error: could not reach the server.'}
+  clearInterval(timer);$('send').disabled=false;$('q').focus();
+}
+$('reset').onclick=async()=>{await fetch('/api/reset',{method:'POST',body:'{}'});$('chat').innerHTML='<div class="hint">Conversation cleared.</div>'};
+</script></body></html>

@@ -115,10 +115,10 @@ No real payments, transfers or emails - all actions are local records. No API ke
 
 ## Team
 
-Group of 3 - HD in AI & SE 26-01 (Lecturer: Praneeth Silva)
+Group of 3 - HD in AI & SE 26-01 (Lecturer: Yashod Perera)
 
 | Member | Student ID | Main responsibility |
 |---|---|---|
 | Helanga Kotalawala | CCLARKE590 | Agent lead: agent loop, system prompt, conversation memory, guardrails, logging, CLI (`agents/`, `main.py`, `config.py`) |
-| Dev Jayawardena | CCLARKE600 | Tools lead: 8 tools, input validation, SQLite layer, currency API, CSV import, reports, sample data (`tools/`, `seed_data.py`, `data/`) |
-| Pradeep Weerasinghe | CCLARKE610 | Testing and docs lead: web UI, setup/run scripts, regression tests, README, report, demo video (`web_ui.py`, `web/`, `*.bat`, `tests/test_regressions.py`) |
+| Dev Jayawardena | CCLARKE646 | Tools lead: 8 tools, input validation, SQLite layer, currency API, CSV import, reports, sample data (`tools/`, `seed_data.py`, `data/`) |
+| Pradeep Weerasinghe | CCLARKE618 | Testing and docs lead: web UI, setup/run scripts, regression tests, README, report, demo video (`web_ui.py`, `web/`, `*.bat`, `tests/test_regressions.py`) |
